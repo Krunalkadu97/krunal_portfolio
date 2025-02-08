@@ -7,7 +7,6 @@ import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motio
 import { IoLogoApple } from "react-icons/io5";
 import { TfiAndroid } from "react-icons/tfi";
 import { IoGlobeSharp } from "react-icons/io5";
-import { PiGithubLogoFill } from "react-icons/pi";
 import { ImPointRight } from "react-icons/im";
 import { GrTechnology } from "react-icons/gr";
 

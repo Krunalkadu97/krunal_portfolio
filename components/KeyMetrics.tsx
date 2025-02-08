@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { m, motion, useInView } from 'framer-motion';
-import { desc, label } from "framer-motion/client";
-
+import { motion, useInView } from 'framer-motion';
 const metrics = [
     {
         id: 1,
