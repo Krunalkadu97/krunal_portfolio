@@ -331,6 +331,7 @@ export const Portfolio = () => {
                                 <div className="flex flex-row items-center mt-4 my-1 gap-4">
                                     {project.description.Deployed.map((item,index)=>(
                                         <motion.a 
+                                            key={index}
                                             href={item.link}
                                             style={{border, boxShadow}}
                                             className="flex w-fit item-center gap-2 rounded-full p-2 mb-1"
