@@ -17,7 +17,7 @@ export const ProjectCard = ({ imgUrl, title, description }: PCard) => {
         style={{ background: `url(${imgUrl.src})`, backgroundSize: "contain" }}
       >
         <div className="overlay flex items-center justify-center gap-5 absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
-          {description.Deployed.map((item, index) => (
+          {description.Deployed.map((item: { link: string; logo: React.ElementType; color: string }, index: string) => (
             <a
               key={index}
               href={item.link}
