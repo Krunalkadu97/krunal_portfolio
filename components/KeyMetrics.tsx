@@ -1,23 +1,25 @@
 "use client";
 
 import React from "react";
-import { motion, useInView } from 'framer-motion';
+import { m, motion, useInView } from 'framer-motion';
+import { desc, label } from "framer-motion/client";
+
 const metrics = [
     {
         id: 1,
-        value: '5+',
+        value: '4+',
         label: 'Years of Experience',
-        desc: 'In the field of software development.',
+        desc: 'In the field of React Native and React.js.',
     },
     {
         id: 2,
-        value: '50+',
+        value: '9+',
         label: 'Projects Completed',
         desc: 'For small applications to complex mobile and web platforms.',
     },
     {
         id: 3,
-        value: '10+',
+        value: '3+',
         label: 'Technologies Mastered',
         desc: 'Proficient in a wide range of programming languages and frameworks.',
     },
@@ -29,7 +31,7 @@ const metrics = [
     },
     {
         id: 5,
-        value: '1000+',
+        value: '500+',
         label: 'Commits on Github',
         desc: 'Active contributor to open source and personal projects.',
     },

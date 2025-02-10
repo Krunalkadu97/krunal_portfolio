@@ -1,64 +1,82 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
-import Image from "next/image";
-import infoLogo from "@/components/assets/Infocentroid.png"
-import liseLogo from "@/components/assets/lise.webp"
-import iplogo from "@/components/assets/ip.png"
-import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion";
-import { ImPointRight } from "react-icons/im";
+import React, {useEffect, useRef} from "react";
+import { useMotionTemplate, useMotionValue, motion, animate, useScroll } from "framer-motion";
+import LiIcon from "@/components/common/LiIcon";
 
-
-const projects = [  
+const workexp = [  
     {   
         id: 1, 
-        joined: "Sep.2023", 
-        last_day: 'Present',
-        designation: 'Software Engineer',
-        title: 'iProgrammer Solutions Private Limited', 
-        description: [
-            "Design and implement new features, ensuring optimal performance and scalability.",
-            "Collaborate with cross-functional teams to align development with business goals.",
-            "Contribute to the full software lifecycle, from design to deployment.",
-            "Follow best practices to deliver high-quality solutions and optimize app performance.",
-            "Proactively address issues to enhance application efficiency."
-        ],
-        image: iplogo
+        time: 'Sep.2023 - Present',
+        position: 'Software Engineer',
+        company: 'iProgrammer Solutions Private Limited', 
+        address: 'Pune, Maharashtra',
+        work: "As a Software Developer, I design and implement innovative features, ensuring optimal performance, scalability, and alignment with business objectives by collaborating closely with cross-functional teams. Throughout the entire software lifecycle—from design to deployment—I follow best practices to deliver high-quality, efficient, and scalable solutions. I proactively identify and resolve issues, optimizing application performance to ensure seamless functionality and provide an exceptional user experience.",
+        link: "https://www.iprogrammer.com/"
     },
     {
         id: 2, 
-        joined: "Oct.2021", 
-        last_day: 'Sep.2023',
-        designation: 'Software Developer (Team Lead)',
-        title: 'Lise Infotech Pvt Ltd', 
-        description: [
-            "Collaborated with clients to deliver solutions from concept to final product.",
-            " Led development of core application components from scratch to deployment.",
-            "Streamlined development processes and ensured high-quality outputs.",
-            "Managed and mentored a team of 5 developers, overseeing tasks and code reviews."
-        ],
-        image: liseLogo
+        time: 'Oct.2021 - Sep.2023',
+        position: 'Software Developer (Team Lead)',
+        company: 'Lise Infotech Pvt Ltd', 
+        address: 'Indore, Madhya Pradesh',
+        work: "As a Software Developer Team Lead, I collaborated closely with clients to deliver comprehensive solutions, guiding projects from concept through to the final product. I led the development of core application components, taking them from scratch to deployment, ensuring seamless functionality and performance. By streamlining development processes, I ensured the delivery of high-quality outputs while optimizing team efficiency. Additionally, I managed and mentored a team of 5 developers, overseeing task assignments, providing guidance, and conducting code reviews to maintain high standards of code quality and best practices.",
+        link: "https://www.liseinfotech.com/"
     },
     {
         id: 3, 
-        joined: "Jan.2021", 
-        last_day: 'Oct.2021',
-        designation: 'React Native Developer',
-        title: 'InfoCentroid Software Solutions Pvt. Ltd', 
-        description: [
-            'Assisted in gathering client requirements and contributed to the full development lifecycle.',
-            "Actively participated in application development, from design to deployment.",
-            "Implemented best practices to ensure high-quality solutions.",
-            "Worked under guidance to enhance skills and meet deadlines."
-        ],
-        image: infoLogo
+        time: "Jan.2021 - Oct.2021", 
+        position: 'React Native Developer',
+        company: 'InfoCentroid Software Solutions Pvt. Ltd', 
+        address: 'Indore, Madhya Pradesh',
+        work: "As a React Native Developer, I assisted in gathering client requirements and contributed to various stages of the development lifecycle. I actively participated in application development, from design through to deployment, ensuring smooth integration of features. I applied best practices to deliver high-quality, reliable solutions and continuously worked to enhance my skills under the guidance of senior team members. My focus was on meeting deadlines while collaborating effectively to contribute to the overall success of the project.",
+        link: "https://www.infocentroid.com/"
     },
 ]
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
+type DetailsP = {
+    time: string;
+    position: string;
+    company: string;
+    description: string;
+    place: string;
+    link: string;
+};
+const Details = ({time, position, company, description, place, link}: DetailsP)=>{
+    const ref = useRef(null);
+    return(<li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between">
+        <LiIcon ref={ref} />
+        <motion.section 
+            initial={{y: 50}}
+            whileInView={{y:0}}
+            transition={{
+                duration: 0.6,
+                type: 'spring'
+            }}
+        >
+            <h3 className="capitalize font-bold text-2xl">{position}&nbsp;
+                <a href={link} target="_blank"
+                className="text-purple-300 capitalize"
+            >@{company}</a>
+            </h3>
+            <span className="capitalize font-medium text-white/85">
+                {time} | {place}
+            </span>
+            <p className="font-medium w-full">
+               {description}
+            </p>
+        </motion.section >
+    </li>);
+}
+
 export const WorkExperience = () => {
-    const [selectedProject, setSelectedProject] = useState(projects[0]);
+    const ref = useRef(null);
     const color = useMotionValue(COLORS_TOP[0])
+    const {scrollYProgress} = useScroll({
+        target: ref,
+        offset:['start end', "center start"]
+    });
    
 
     useEffect(()=>{
@@ -77,8 +95,35 @@ export const WorkExperience = () => {
             className="py-32 text-white"
             style={{backgroundImage}}
         >
+        <h2 className="text-4xl sm:6xl font-bold mb-10 w-full text-center">WORK EXPERIENCE</h2>   
+          
+         <div ref={ref} className="w-[75%] mx-auto relative"> 
+            <motion.div 
+                style={{scaleY: scrollYProgress}}
+                className="absolute left-9 top-1 w-[4px] h-full bg-purple-400 origin-top"
+            />
 
-            <div className="container mx-auto flex flex-col md:flex-row">
+            <ul className="w-full flex flex-col items-start justify-between ml-4">
+                {workexp.map((exp, index)=>(
+                    <Details
+                        key={index}
+                        description={exp.work}
+                        position={exp.position}
+                        time={exp.time}
+                        company={exp.company}
+                        place={exp.address}
+                        link={exp.link}
+                    />
+                ))}
+                
+            </ul>
+         </div>
+        </motion.section>
+    )
+}
+
+/**
+ *   <div className="container mx-auto flex flex-col md:flex-row">
                 <div className="md:w-1/4 pr-8 mb-12 ml-4 md:mb-0 sm:ml-0">
                     <h2 className="text-4xl sticky top-20 sm:6xl font-bold mb-10">WORK <br/> <span className="text-purple-400">EXPERIENCE</span></h2>
                 </div>
@@ -134,8 +179,4 @@ export const WorkExperience = () => {
        
     </div>
             </div>
-         
-           
-        </motion.section>
-    )
-}
+ */

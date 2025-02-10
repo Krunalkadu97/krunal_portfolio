@@ -2,17 +2,20 @@
 
 import { animate, useMotionTemplate, useMotionValue, motion } from "framer-motion"
 import Image from 'next/image'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import profile from '@/components/assets/main3.png'
 import { FiArrowRight } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaMedium } from "react-icons/fa6";
+import jsPDF from "jspdf"
 
+const resume_link = "https://i.ibb.co/Y7X41L3H/Krunal-Resume-New.jpg";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 export const Hero = () => {
+    const [isDownload, setIsDownload] = useState(false)
     const color = useMotionValue(COLORS_TOP[0])
 
     useEffect(()=>{
@@ -26,6 +29,14 @@ export const Hero = () => {
     const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`
     const border = useMotionTemplate`1px solid ${color}`
     const boxShadow = useMotionTemplate`0 4px 24px ${color}`
+
+    const onResumeDownoload = () => {
+      setIsDownload(true)
+      const doc = new jsPDF('portrait', 'px', 'a4', false);
+      doc.addImage(resume_link, 'JPEG', 0, 0, 420, 653);
+      doc.save('Krunal_Resume.pdf');
+      setIsDownload(false)
+    }
     return(<motion.section id="about" style={{backgroundImage}} className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-gray-200" >
        <div className="z-10 flex flex-col items-center pt-5">
         <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-2 text-sm">Open For Work</span>
@@ -76,10 +87,12 @@ export const Hero = () => {
             <p className="my-6 max-w-xl md:text-lg text-center">Software developer with 4+ years of experience in React Native, React.js, TypeScript, Redux, and MobX, building scalable and high-quality applications.</p>
 
             <motion.button 
-            style={{border, boxShadow}}
-            className="flex w-fit item-center gap-2 rounded-full px-4 py-2 mb-1"
-            whileHover={{scale: 1.015}}
-            whileTap={{scale: 0.985}}
+              style={{border, boxShadow}}
+              className="flex w-fit item-center gap-2 rounded-full px-4 py-2 mb-1"
+              whileHover={{scale: 1.015}}
+              whileTap={{scale: 0.985}}
+              disabled={isDownload}
+              onClick={onResumeDownoload}
             >
               Download CV
               <FiArrowRight className="mt-1"/>

@@ -1,12 +1,12 @@
 "use client";
 
 import {motion} from "framer-motion";
-
+import EmailSection from "@/components/EmailSection"
 
 export const Contact = () => {
     return( 
         <section id="contact" 
-            className="overflow-x-clip py-32 text-white max-w-[1200px] mx-auto px-4">
+            className="overflow-x-clip py-32 text-white mx-auto px-0 md:px-4 lg:px-6 relative">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -14,6 +14,7 @@ export const Contact = () => {
                 viewport={{ once: true }}
                 className="grid lg:grid-cols-2 gap-16"
             >
+                <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
                 <div className="space-y-12">
                     <motion.h2
                         initial={{ opacity: 0, y: -20 }}
@@ -26,7 +27,7 @@ export const Contact = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="glass p-8 rounded-2xl space-y-8 mx-2 sm:mx-0"
+                        className="p-8 rounded-2xl space-y-8 mx-2 md:mx-0"
                     >
                         <div className="space-y-2">
                             <p className="text-lg text-gray-300">Phone</p>
@@ -66,15 +67,8 @@ export const Contact = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.6 }}
-                            className="w-full h-full min-h-[400px] rounded-2xl overflow-hidden relative mx-2 sm:mx-0">
-                                <iframe
-                                src="https://maps.app.goo.gl/tEPm1u8NkorgaKDs6"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                loading="lazy"
-                                allowFullScreen
-                                ></iframe>
+                            className="w-full h-full min-h-[400px] glass space-y-8 p-4 rounded-2xl overflow-hidden relative mx-2 md:mx-0">
+                             <EmailSection />
                         </motion.div>
             </motion.div>
         </section>

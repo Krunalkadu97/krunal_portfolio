@@ -7,7 +7,8 @@ import { KeyMetrics } from '@/components/KeyMetrics';
 import { Services } from '../components/Services';
 import { Contact } from '../components/Contact';
 import { WorkExperience } from '@/components/WorkExperience';
-
+import { Education } from '@/components/Education';
+import { Footer } from '@/components/Footer';
 export default function Home() {
   return (
     <>
@@ -15,11 +16,13 @@ export default function Home() {
       <Hero />
       <Stack />
       <WorkExperience />
+      <Education />
       <LogoAnimation />
       <Portfolio /> 
-       <KeyMetrics /> 
+      <KeyMetrics /> 
       <Services />
       <Contact />
+      <Footer />
     </>
   );
 }

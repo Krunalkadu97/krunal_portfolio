@@ -12,7 +12,7 @@ import { SiXcode } from "react-icons/si";
 import { SiAndroidstudio } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiEslint } from "react-icons/si";
-
+import { motion } from 'framer-motion';
 
 const stcakItems = [
     {id: 1, name: 'React Native', icon: FaReact, color: '#61DAFB'},
@@ -36,6 +36,7 @@ export const Stack = () => {
         <section id="stack" className='py-16 glass'>
             <div className='max-w-[1200px] mx-auto px-4 text-center'>
                 <h2 className='text-5xl text-gray-200 font-bold mb-4 mt-3'>Technical Stack</h2>
+                
                 <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2'>
                     {stcakItems.map((item) => (
                         <div key={item.id}
