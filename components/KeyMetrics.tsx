@@ -1,41 +1,9 @@
 "use client";
 
 import React from "react";
-import { m, motion, useInView } from 'framer-motion';
-import { desc, label } from "framer-motion/client";
+import { motion, useInView } from 'framer-motion';
+import { metrics } from "@/components/helper/constants";
 
-const metrics = [
-    {
-        id: 1,
-        value: '4+',
-        label: 'Years of Experience',
-        desc: 'In the field of React Native and React.js.',
-    },
-    {
-        id: 2,
-        value: '9+',
-        label: 'Projects Completed',
-        desc: 'For small applications to complex mobile and web platforms.',
-    },
-    {
-        id: 3,
-        value: '3+',
-        label: 'Technologies Mastered',
-        desc: 'Proficient in a wide range of programming languages and frameworks.',
-    },
-    {
-        id: 4,
-        value: '99%',
-        label: 'Code Quality',
-        desc: 'Commited to write clean, efficient and maintainable code.',
-    },
-    {
-        id: 5,
-        value: '500+',
-        label: 'Commits on Github',
-        desc: 'Active contributor to open source and personal projects.',
-    },
-]
 export const KeyMetrics = () => {
     const ref = React.useRef<HTMLElement>(null);
     const isInView = useInView(ref, { once: false });

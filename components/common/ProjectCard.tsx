@@ -3,8 +3,10 @@
 import React from "react";
 
 type PCard = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     imgUrl: any;
     title: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     description: any;
 };
 export const ProjectCard = ({ imgUrl, title, description }: PCard) => {

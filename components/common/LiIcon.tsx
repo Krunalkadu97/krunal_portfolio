@@ -2,6 +2,7 @@ import React from 'react'
 import { motion, useScroll } from 'framer-motion';
 
 type Props = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ref: any;
 }
 
