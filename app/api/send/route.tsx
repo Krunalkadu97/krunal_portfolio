@@ -5,11 +5,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL
+const fromEmail = process.env.FROM_EMAIL || 'krunalkadu97@gmail.com';
 
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  const {body} = await req.json();
-  console.log("body", body)
+  const body = req.body;
   const {email, subject, message} = body;
   try {
     const { data, error } = await resend.emails.send({
