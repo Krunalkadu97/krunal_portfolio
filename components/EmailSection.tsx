@@ -6,26 +6,26 @@ function EmailSection() {
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        const data = {
-            email: e.target.email.value,
-            subject: e.target.subject.value,
-            message: e.target.message.value,
-        };
-        const requestObj = JSON.stringify(data);
-        const endpoint = "/api/send";
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: requestObj,
-        };
+        // const data = {
+        //     email: e.target.email.value,
+        //     subject: e.target.subject.value,
+        //     message: e.target.message.value,
+        // };
+        // const requestObj = JSON.stringify(data);
+        // const endpoint = "/api/send";
+        // const options = {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": 'application/json'
+        //     },
+        //     body: requestObj,
+        // };
         
-        const response = await fetch(endpoint, options);
-        const result = await response.json()
-        if(response.status === 200){
-            console.log("result", result)
-        }
+        // const response = await fetch(endpoint, options);
+        // const result = await response.json()
+        // if(response.status === 200){
+        //     console.log("result", result)
+        // }
     }
   return (
     <div>
