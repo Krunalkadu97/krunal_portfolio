@@ -4,7 +4,7 @@ import React from 'react'
 
 function EmailSection() {
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         // const data = {
         //     email: e.target.email.value,
