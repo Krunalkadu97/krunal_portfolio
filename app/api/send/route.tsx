@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import { EmailTemplate } from '../../../components/EmailTemplate';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
