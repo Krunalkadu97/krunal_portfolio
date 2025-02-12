@@ -3,12 +3,12 @@
 import React from 'react';
 import {stcakItems, toolsItem} from "@/components/helper/constants";
 
-
 export const Stack = () => {    
     return (
         <section id="stack" className='py-16 glass'>
             <div className='max-w-[1200px] mx-auto px-4 text-center'>
-                <h2 className='text-5xl text-gray-200 font-bold mb-4 mt-3'>Technical Stack</h2>
+                <h2 className='text-4xl md:text-5xl text-gray-200 font-bold mb-4 mt-3'>Technical Stack</h2>
+                
                 
                 <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2'>
                     {stcakItems.map((item) => (
@@ -25,7 +25,7 @@ export const Stack = () => {
                     ))}
                 </div>
 
-                <h2 className='text-5xl text-gray-200 font-bold mb-4 mt-3'>Tools</h2>
+                <h2 className='text-4xl md:text-5xl text-gray-200 font-bold mb-4 mt-3'>Tools</h2>
                 <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2'>
                     {toolsItem.map((item) => (
                         <div key={item.id}

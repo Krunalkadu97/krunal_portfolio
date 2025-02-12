@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, useInView } from 'framer-motion';
-import { metrics } from "@/components/helper/constants";
+import { metrics } from "./helper/constants";
 
 export const KeyMetrics = () => {
     const ref = React.useRef<HTMLElement>(null);
@@ -12,18 +12,10 @@ export const KeyMetrics = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{duration: 0.8}}
-        className="px-4 py-32 text-white glass"
+        className="text-white"
         >
             <div className="container mx-auto">
-                <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{delay: 0.2, duration: 0.6}}
-                className="text-6xl font-bold mb-12"
-                >
-                    KEY METRICS 
-                </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid gap-8">
                     {metrics.map((metric, index) => (
                         <motion.div
                             key={metric.id}

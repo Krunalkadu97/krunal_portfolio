@@ -1,42 +1,7 @@
 "use client";
 
-const services = [
-    {
-        id: '01',
-        title: 'Mobile App Development',
-        desc: 'We build mobile applications that help businesses for better operational efficiency and engagement.'
-    },
-    {
-        id: '02',
-        title: 'Web Development',
-        desc: 'We build websites that serve as powerful marketing tools and bring memorable brand experiences.'
-    },
-    {
-        id: '03',
-        title: 'SEO Optimization',
-        desc: 'Enhance your business online presence by optimizing your website following best SEO practices.'
-    },
-    {
-        id: '04',
-        title: 'UI/UX Design',
-        desc: 'Create a digital experience that matches expectations and empowers your business.'
-    },
-    {
-        id: '05',
-        title: 'Digital Marketing',
-        desc: 'We provide a range of marketing services from social media to content marketing and email marketing.'
-    },
-    {
-        id: '06',
-        title: 'Social Media Marketing',
-        desc: 'We create and manage top-performing social media campaigns for businesses.'
-    },
-    {
-        id: '07',
-        title: 'Content Creation',
-        desc: 'Our team of content creators create engaging content that resonates with your target audience.'
-    },
-]
+import { services } from "@/components/helper/constants";
+
 export const Services = () => {
    
     return(

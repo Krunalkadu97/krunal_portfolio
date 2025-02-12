@@ -2,40 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import udemy from "@/components/assets/udemy.png";
-import fiverr from "@/components/assets/fiverr.png";
-import elementor from "@/components/assets/elementor.png";
-import logitech from "@/components/assets/logitech.png";
-import oracle from "@/components/assets/oracle.webp";
+import { animationImages } from '@/components/helper/constants';
 
 
-const images = [
-    {src: udemy, alt: "figma"},
-    {src: fiverr, alt: "fiverr"},
-    {src: elementor, alt: "elementor"},
-    {src: logitech, alt: "logitech"},
-    {src: oracle, alt: "oracle"},
-    {src: udemy, alt: "figma"},
-    {src: fiverr, alt: "fiverr"},
-    {src: elementor, alt: "elementor"},
-    {src: logitech, alt: "logitech"},
-    {src: oracle, alt: "oracle"},
-    {src: udemy, alt: "figma"},
-    {src: fiverr, alt: "fiverr"},
-    {src: elementor, alt: "elementor"},
-    {src: logitech, alt: "logitech"},
-    {src: oracle, alt: "oracle"},
-    {src: udemy, alt: "figma"},
-    {src: fiverr, alt: "fiverr"},
-    {src: elementor, alt: "elementor"},
-    {src: logitech, alt: "logitech"},
-    {src: oracle, alt: "oracle"},
-    {src: udemy, alt: "figma"},
-    {src: fiverr, alt: "fiverr"},
-    {src: elementor, alt: "elementor"},
-    {src: logitech, alt: "logitech"},
-    {src: oracle, alt: "oracle"},
-]
 export const LogoAnimation = () => {
     return(
     <div className='py-8 bg-purple-200/10 glass opacity-80'> 
@@ -51,12 +20,13 @@ export const LogoAnimation = () => {
                         repeatType: 'loop'
                     }}
                     >
-                        {images.map((image, index) => (
+                        {animationImages.map((image, index) => (
                             <Image 
                                 key={index}
                                 src={image.src}
                                 alt={image.alt}
-                                height={30}
+                                className='rounded-xl'
+                                height={180}
                             />
                         ))}
                     </motion.div>

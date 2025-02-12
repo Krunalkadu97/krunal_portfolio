@@ -58,7 +58,7 @@ const Details = ({time, position, company, description, place, link}: DetailsP)=
             <h3 className="capitalize font-bold text-2xl">{position}&nbsp;
                 <a href={link} target="_blank"
                 className="text-purple-300 capitalize"
-            >@{company}</a>
+            > <br/>@{company}</a>
             </h3>
             <span className="capitalize font-medium text-white/85">
                 {time} | {place}
@@ -95,7 +95,7 @@ export const WorkExperience = () => {
             className="py-32 text-white"
             style={{backgroundImage}}
         >
-        <h2 className="text-4xl sm:6xl font-bold mb-10 w-full text-center">WORK EXPERIENCE</h2>   
+        <h2 className="text-4xl md:text-5xl font-bold mb-10 w-full text-center">WORK EXPERIENCE</h2>   
           
          <div ref={ref} className="w-[75%] mx-auto relative"> 
             <motion.div 

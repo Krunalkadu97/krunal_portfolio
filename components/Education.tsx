@@ -80,7 +80,7 @@ export const Education = () => {
             className="py-32 text-white"
             style={{backgroundImage}}
         >
-        <h2 className="text-4xl sm:6xl font-bold mb-10 w-full text-center">EDUCATION</h2>   
+        <h2 className="text-4xl md:text-5xl font-bold mb-10 w-full text-center">EDUCATION</h2>   
           
          <div ref={ref} className="w-[75%] mx-auto relative"> 
             <motion.div 

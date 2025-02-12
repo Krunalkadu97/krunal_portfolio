@@ -47,7 +47,7 @@ export const Portfolio = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-6xl text-white font-bold mb-12"
+            className="text-4xl md:text-5xl text-white font-bold mb-12"
             >
             MY <span className="text-purple-400">Projects</span>
             </motion.h2>

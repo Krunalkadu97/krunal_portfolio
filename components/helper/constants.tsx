@@ -20,10 +20,10 @@ import ttlogo4 from "@/components/assets/projects/td4.webp";
 import ttlogo5 from "@/components/assets/projects/td5.webp";
 import tslogo1 from "@/components/assets/projects/ts1.webp";
 import tslogo2 from "@/components/assets/projects/ts2.webp";
-import VIProject from "@/components/assets/projects/VI.png";
-import TSProject from "@/components/assets/projects/Tradesutra.png";
-import TTProject from "@/components/assets/projects/Tradetron.png";
-import HPProject from "@/components/assets/projects/Heart.png";
+import heart from "@/components/assets/hnp.webp";
+import tradesutra from "@/components/assets/tradesutra.webp";
+import tradetron from "@/components/assets/tradetron.webp";
+import vi from "@/components/assets/vi.webp";
 
 
 export const projects = [
@@ -31,7 +31,7 @@ export const projects = [
       id: 1,
       year: 2024,
       title: "Vodafone-Idea (VI) User Application",
-      image: VIProject,
+      image: vi,
       tag: ["All", "Mobile"],
       description: {
         Description:
@@ -109,7 +109,14 @@ export const projects = [
         Tools: ["Git", "Jira", "X-Code", "Android Studio"],
         Practices: [],
         Deployed: [
-          { id: 4, title: "Web", link: "", logo: IoGlobeSharp, color: "#fff" },
+          {
+            id: 2,
+            title: "Android",
+            link: "https://play.google.com/store/apps/details?id=com.wagefi",
+            logo: TfiAndroid,
+            color: "#fff",
+          },
+          { id: 4, title: "Web", link: "https://employer.wagefi.co/", logo: IoGlobeSharp, color: "#fff" },
         ],
         images: [defaultlogo],
       },
@@ -118,7 +125,7 @@ export const projects = [
       id: 4,
       year: 2023,
       title: "Heart And Paw (Pet Services App)",
-      image: HPProject,
+      image: heart,
       tag: ["All", "Mobile"],
       description: {
         Description:
@@ -213,7 +220,7 @@ export const projects = [
       id: 7,
       year: 2024,
       title: "Tradetron - Financial Application",
-      image: TTProject,
+      image: tradetron,
       tag: ["All", "Mobile"],
       description: {
         Description:
@@ -250,7 +257,7 @@ export const projects = [
       year: 2023,
       title: "TradeSutra - Financial Services Application",
       tag: ["All", "Mobile"],
-      image: TSProject,
+      image: tradesutra,
       description: {
         Description:
           "TradeSutra is a financial services application that offers stock market tips to users based on their subscription status (paid or free). The platform is designed to help users make informed decisions by providing stock market insights tailored to their needs.",
@@ -269,6 +276,13 @@ export const projects = [
             title: "IOS",
             link: "https://apps.apple.com/in/app/tradesutra/id1611014436",
             logo: IoLogoApple,
+            color: "#fff",
+          },
+          {
+            id: 2,
+            title: "Android",
+            link: "https://play.google.com/store/apps/details?id=com.tradesutra",
+            logo: TfiAndroid,
             color: "#fff",
           },
         ],
@@ -353,12 +367,6 @@ export const projects = [
         label: 'Code Quality',
         desc: 'Commited to write clean, efficient and maintainable code.',
     },
-    {
-        id: 5,
-        value: '500+',
-        label: 'Commits on Github',
-        desc: 'Active contributor to open source and personal projects.',
-    },
 ]
 
 
@@ -389,4 +397,71 @@ export const toolsItem = [
     {id: 10, name: 'Postman', icon: SiPostman, color: '#FF6C37'},
     {id: 11, name: 'Jira', icon: SiJira, color: '#0052CC'},
     {id: 12, name: 'ESLint', icon: SiEslint, color: '#4B32C3'},
+]
+
+
+
+
+export const animationImages = [
+  {src: vi, alt: "vi"},
+  {src: heart, alt: "heart_n_paw"},
+  {src: tradesutra, alt: "tradesutra"},
+  {src: tradetron, alt: "tradetron"},
+  {src: vi, alt: "vi"},
+  {src: heart, alt: "heart_n_paw"},
+  {src: tradesutra, alt: "tradesutra"},
+  {src: tradetron, alt: "tradetron"},
+  {src: vi, alt: "vi"},
+  {src: heart, alt: "heart_n_paw"},
+  {src: tradesutra, alt: "tradesutra"},
+  {src: tradetron, alt: "tradetron"},
+  {src: vi, alt: "vi"},
+  {src: heart, alt: "heart_n_paw"},
+  {src: tradesutra, alt: "tradesutra"},
+  {src: tradetron, alt: "tradetron"},
+  {src: vi, alt: "vi"},
+  {src: heart, alt: "heart_n_paw"},
+  {src: tradesutra, alt: "tradesutra"},
+  {src: tradetron, alt: "tradetron"},
+  {src: vi, alt: "vi"},
+]
+
+export const resume_link = "https://i.ibb.co/Y7X41L3H/Krunal-Resume-New.jpg";
+
+export const services = [
+  {
+      id: '01',
+      title: 'Mobile App Development',
+      desc: 'We build mobile applications that help businesses for better operational efficiency and engagement.'
+  },
+  {
+      id: '02',
+      title: 'Web Development',
+      desc: 'We build websites that serve as powerful marketing tools and bring memorable brand experiences.'
+  },
+  // {
+  //     id: '03',
+  //     title: 'SEO Optimization',
+  //     desc: 'Enhance your business online presence by optimizing your website following best SEO practices.'
+  // },
+  {
+      id: '03',
+      title: 'UI/UX Design',
+      desc: 'Create a digital experience that matches expectations and empowers your business.'
+  },
+  // {
+  //     id: '05',
+  //     title: 'Digital Marketing',
+  //     desc: 'We provide a range of marketing services from social media to content marketing and email marketing.'
+  // },
+  // {
+  //     id: '06',
+  //     title: 'Social Media Marketing',
+  //     desc: 'We create and manage top-performing social media campaigns for businesses.'
+  // },
+  // {
+  //     id: '07',
+  //     title: 'Content Creation',
+  //     desc: 'Our team of content creators create engaging content that resonates with your target audience.'
+  // },
 ]

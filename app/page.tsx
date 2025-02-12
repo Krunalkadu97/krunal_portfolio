@@ -3,7 +3,7 @@ import { Hero } from '@/components/Hero';
 import { Stack } from '@/components/Stack';
 import { LogoAnimation } from '@/components/LogoAnimation';
 import { Portfolio } from '../components/Portfolio';
-import { KeyMetrics } from '@/components/KeyMetrics';
+import { About } from '@/components/About';
 import { Services } from '../components/Services';
 import { Contact } from '../components/Contact';
 import { WorkExperience } from '@/components/WorkExperience';
@@ -14,12 +14,12 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <About />
       <Stack />
       <WorkExperience />
       <Education />
       <LogoAnimation />
       <Portfolio /> 
-      <KeyMetrics /> 
       <Services />
       <Contact />
       <Footer />
