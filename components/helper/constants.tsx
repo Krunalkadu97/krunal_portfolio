@@ -381,6 +381,8 @@ import { SiXcode } from "react-icons/si";
 import { SiAndroidstudio } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiEslint } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaMedium } from "react-icons/fa6";
 
 export const stcakItems = [
     {id: 1, name: 'React Native', icon: FaReact, color: '#61DAFB'},
@@ -465,3 +467,31 @@ export const services = [
   //     desc: 'Our team of content creators create engaging content that resonates with your target audience.'
   // },
 ]
+
+
+export const socialLinks = [
+    {
+        name: 'linkdin',
+        icon: FaLinkedinIn,
+        color: "#007ACC",
+        link: "https://www.linkedin.com/in/krunal-kadu-996a3912b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    },
+    {
+        name: 'github',
+        icon: FaGithub,
+        color: "#fff",
+        link: "https://github.com/Krunalkadu97/"
+    },
+    {
+        name: 'medium',
+        icon: FaMedium,
+        color: "#fff",
+        link: "https://medium.com/@krunalkadu97"
+    },
+];
+
+export const contactInfo = {
+    phone: "+91 8308082945",
+    email: "krunalkadu97@gmail.com",
+    address: "Pune, Maharashtra"
+}

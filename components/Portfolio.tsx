@@ -42,16 +42,16 @@ export const Portfolio = () => {
             className="py-32"
             style={{ backgroundImage }}
         >
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 md:px-0">
             <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl md:text-5xl text-white font-bold mb-12"
+            className="text-4xl md:text-5xl text-white font-bold md:mb-6"
             >
             MY <span className="text-purple-400">Projects</span>
             </motion.h2>
-            <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+            <div className="text-white flex flex-row items-center gap-2 py-6">
                 {activeTag.map((item)=>(
                     <ProjectTags 
                         key={item} 

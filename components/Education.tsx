@@ -37,7 +37,7 @@ type DetailsP = {
 };
 const Details = ({type, time, place, info}: DetailsP)=>{
     const ref = useRef(null);
-    return(<li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between">
+    return(<li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[70%] mx-auto flex flex-col items-center justify-between">
         <LiIcon ref={ref} />
         <motion.section 
             initial={{y: 50}}
@@ -47,11 +47,11 @@ const Details = ({type, time, place, info}: DetailsP)=>{
                 type: 'spring'
             }}
         >
-            <h3 className="capitalize font-bold text-2xl ">{type}</h3>
-            <span className="capitalize font-medium text-white/85">
+            <h3 className="capitalize font-bold text-lg md:text-2xl">{type}</h3>
+            <span className="capitalize font-medium text-sm md:text-lg text-white/85 py-2">
                 {time} | {place}
             </span>
-            <p className="font-medium w-full">{info}</p>
+            <p className="font-medium text-sm md:text-lg w-full">{info}</p>
         </motion.section >
     </li>);
 }
@@ -80,9 +80,9 @@ export const Education = () => {
             className="py-32 text-white"
             style={{backgroundImage}}
         >
-        <h2 className="text-4xl md:text-5xl font-bold mb-10 w-full text-center">EDUCATION</h2>   
+        <h2 className="text-4xl md:text-5xl font-bold mb-10 w-full md:text-center pl-5 md:pl-0">EDUCATION</h2>   
           
-         <div ref={ref} className="w-[75%] mx-auto relative"> 
+         <div ref={ref} className="w-full mx-auto relative md:mx-6"> 
             <motion.div 
                 style={{scaleY: scrollYProgress}}
                 className="absolute left-9 top-1 w-[4px] h-full bg-purple-400 origin-top"
