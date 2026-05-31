@@ -132,13 +132,13 @@ export const About = () => {
 
             {/* Social Footers */}
             <div className="flex justify-center gap-3 w-full mt-6">
-              <a href="https://linkedin.com" target="_blank" className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-all duration-300">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-all duration-300">
                 <FaLinkedinIn className="w-4 h-4" />
               </a>
-              <a href="https://github.com" target="_blank" className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-all duration-300">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-all duration-300">
                 <FaGithub className="w-4 h-4" />
               </a>
-              <a href="https://x.com" target="_blank" className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-all duration-300">
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 hover:bg-purple-500/10 text-slate-400 hover:text-purple-400 transition-all duration-300">
                 <FaXTwitter className="w-4 h-4" />
               </a>
             </div>
@@ -267,13 +267,14 @@ export const About = () => {
             {isDownloading ? "Downloading..." : "Download Resume"}
           </motion.button>
 
+          {/* ESCAPED APOSTROPHE FIX COMPLETED BELOW */}
           <motion.a
             href="#contact"
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
             className="px-6 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 font-semibold text-sm flex items-center gap-2 transition-all text-slate-200"
           >
-            Let's Connect
+            {"Let's Connect"}
             <FiArrowRight className="w-4 h-4 text-purple-400" />
           </motion.a>
         </div>

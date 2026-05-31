@@ -2,6 +2,7 @@
 
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
+import Image from "next/image";
 
 interface DeploymentLink {
   link: string;
@@ -27,15 +28,17 @@ export const ProjectCard = ({ imgUrl, title, description }: ProjectCardProps) =>
   return (
     <div className="group flex flex-col w-full bg-[#0c0a24]/20 border border-slate-900 rounded-2xl overflow-hidden backdrop-blur-sm hover:border-purple-500/20 hover:bg-[#0c0a24]/40 transition-all duration-300 shadow-xl shadow-black/40">
       
-      {/* Aspect-Ratio Guarded Media Container */}
+      {/* Aspect-Ratio Guarded Media Container - Parent must be relative for fill attribute */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 border-b border-slate-900/80">
-        <img
+        <Image
           src={imageSource}
           alt={title}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-40 z-10" />
 
         {/* Hardware-Accelerated Interactive Action Overlay */}
         <div className="absolute inset-0 bg-[#050212]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-20">
