@@ -1,40 +1,89 @@
-"use client"
+"use client";
 
 import React from "react";
+import { FiArrowUpRight } from "react-icons/fi";
 
-type PCard = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    imgUrl: any;
-    title: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    description: any;
-};
-export const ProjectCard = ({ imgUrl, title, description }: PCard) => {
+interface DeploymentLink {
+  link: string;
+  logo: React.ElementType;
+  color: string;
+}
+
+interface ProjectDescription {
+  Description: string;
+  Deployed: DeploymentLink[];
+  TechStack?: string[]; // Optional helper to supply micro-badges cleanly
+}
+
+interface ProjectCardProps {
+  imgUrl: { src: string } | string;
+  title: string;
+  description: ProjectDescription;
+}
+
+export const ProjectCard = ({ imgUrl, title, description }: ProjectCardProps) => {
+  const imageSource = typeof imgUrl === "string" ? imgUrl : imgUrl.src;
+
   return (
-    <div>
-      <div
-        className="h-52 md:h-65 rounded-t-xl relative group bg-contain"
-        style={{ background: `url(${imgUrl.src})`, backgroundSize: "cover" }}
-      >
-        <div className="overlay flex items-center justify-center gap-5 absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
-          {description.Deployed.map((item: { link: string; logo: React.ElementType; color: string }, index: string) => (
+    <div className="group flex flex-col w-full bg-[#0c0a24]/20 border border-slate-900 rounded-2xl overflow-hidden backdrop-blur-sm hover:border-purple-500/20 hover:bg-[#0c0a24]/40 transition-all duration-300 shadow-xl shadow-black/40">
+      
+      {/* Aspect-Ratio Guarded Media Container */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 border-b border-slate-900/80">
+        <img
+          src={imageSource}
+          alt={title}
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-40" />
+
+        {/* Hardware-Accelerated Interactive Action Overlay */}
+        <div className="absolute inset-0 bg-[#050212]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-20">
+          {description.Deployed?.map((item, index) => (
             <a
               key={index}
               href={item.link}
-              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-12 w-12 border border-slate-800 bg-slate-950 rounded-full flex items-center justify-center hover:border-purple-400 hover:scale-110 text-slate-400 transition-all duration-200 shadow-md"
+              style={{ "--hover-color": item.color } as React.CSSProperties}
             >
               {React.createElement(item.logo, {
-                className:
-                  "w-10 h-10 cursor-pointer text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2",
+                className: "w-5 h-5 transition-colors duration-200",
                 style: { color: item.color },
               })}
             </a>
           ))}
         </div>
       </div>
-      <div className="text-white rounded-b-xl bg-[#181818] py-6 px-4">
-        <h5 className="text-xl font-semibold mb-2">{title}</h5>
-        <p className="text-[#ADB7BE]">{description.Description}</p>
+
+      {/* Description Meta Content Area Block (Pushes footer using flex-grow) */}
+      <div className="p-5 sm:p-6 flex flex-col flex-grow justify-between gap-5">
+        <div className="space-y-2.5">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="text-lg font-bold tracking-tight text-slate-200 group-hover:text-purple-400 transition-colors duration-200 leading-snug">
+              {title}
+            </h3>
+            <FiArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 mt-1" />
+          </div>
+          <p className="text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
+            {description.Description}
+          </p>
+        </div>
+
+        {/* Automatic Structural Tech Badges Footer */}
+        {description.TechStack && description.TechStack.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 pt-1 border-t border-slate-900/60">
+            {description.TechStack.map((tag, idx) => (
+              <span
+                key={idx}
+                className="bg-purple-500/5 border border-purple-500/10 text-purple-400/90 text-[10px] font-bold px-2.5 py-1 rounded-md tracking-wide uppercase"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

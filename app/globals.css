@@ -2,68 +2,336 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================
+   ROOT
+========================= */
+
 :root {
-  --background: #000;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
   background: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-.bg-circle-container {
+/* =========================
+   HERO BACKGROUND
+========================= */
+
+.hero-bg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1100px;
-  height: 1100px;
-  border-radius: 50%;
+  inset: 0;
+  overflow: hidden;
   z-index: 0;
 }
 
-.bg-circle-background {
+.hero-bg::before {
+  content: "";
+
   position: absolute;
-  top: 100%;
-  left: 100%;
-  border-radius: 50%;
-  background: rgba(0,0,0,1);
-  z-index: -1;
+
+  width: 900px;
+  height: 900px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 9999px;
+
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.28) 0%,
+    rgba(168, 85, 247, 0.15) 30%,
+    rgba(168, 85, 247, 0.05) 60%,
+    transparent 80%
+  );
+
+  filter: blur(100px);
 }
 
-.bg-circle {
+.hero-bg::after {
+  content: "";
+
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1100px;
-  height: 1100px;
-  border-radius: 50%;
-  background: radial-gradient(circle,
-   #161616e6 0%,
-   rgba(19,18,18,0.9) 1%,
-   rgba(48,39,48,0.3) 10%,
-   rgba(46,40,49,0.2) 20%,
-   rgba(82,78,85,0.1) 60%,
-   rgb(65, 63, 63) 100%
-   );
-  z-index: 0;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+
+  opacity: 0.25;
 }
+
+/* =========================
+   GLASS EFFECT
+========================= */
 
 .glass {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* =========================
+   NAVBAR GLASS
+========================= */
+
+.nav-glass {
+  background: rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   FLOATING TECH CARDS
+========================= */
+
+.glass-card {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(168, 85, 247, 0.4);
+
+  box-shadow:
+    0 20px 50px rgba(168, 85, 247, 0.2);
+}
+
+/* =========================
+   PROFILE GLOW
+========================= */
+
+.profile-glow {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 9999px;
+
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.25),
+    transparent 70%
+  );
+
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn {
+  background: linear-gradient(
+    135deg,
+    #9333ea,
+    #7c3aed
+  );
+
+  color: white;
+
+  box-shadow:
+    0 10px 35px rgba(147, 51, 234, 0.35);
+
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 20px 50px rgba(147, 51, 234, 0.45);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(20px);
+
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   METRIC CARDS
+========================= */
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(168, 85, 247, 0.3);
+}
+.about-badge {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #c084fc;
+}
+
+.glass-card-large {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 24px;
+}
+
+.profile-ring {
+  width: 240px;
+  height: 240px;
+  border-radius: 999px;
+  padding: 4px;
+  background: linear-gradient(
+    135deg,
+    #a855f7,
+    transparent
+  );
+  margin: auto;
+}
+
+.online-dot {
+  width: 16px;
+  height: 16px;
+  background: #22c55e;
+  border-radius: 999px;
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+}
+
+.metric-modern {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.metric-modern h3 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #c084fc;
+}
+
+.skill-track {
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #a855f7,
+    #d946ef
+  );
+  border-radius: 999px;
+}
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9333ea;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .glass-card {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+  }
+
+  .profile-glow {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero-bg::before {
+    width: 500px;
+    height: 500px;
+  }
 }

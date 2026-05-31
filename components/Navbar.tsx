@@ -1,138 +1,245 @@
-"use client"
+"use client";
 
-import React, {useState} from 'react'
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { motion } from 'framer-motion';
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
 
 const navLinks = [
-    {title: 'About', path: '#about'},
-    {title: 'Stack', path: '#stack'},
-    {title: 'Experience', path: '#workexperience'},
-    {title: 'Portfolio', path: '#portfolio'},
-    {title: 'Contact', path: '#contact'},
-]
+  { title: "About", path: "#about" },
+  { title: "Skills", path: "#stack" },
+  { title: "Experience", path: "#workexperience" },
+  { title: "Projects", path: "#portfolio" },
+  { title: "Contact", path: "#contact" },
+];
 
-type MenuProps = {
-    children: React.ReactNode;
-    href: string;
-    index: number;
-};
-const MenuItems = ({children, href, index}:MenuProps) => {
-    return(<motion.a 
-        initial={{opacity:0, y:-20}}
-        animate={{opacity:1, y:0}}
-        whileHover={{scale: 1.06}}
-        whileTap={{scale: 0.95}}
-        transition={{
-            delay: index * 0.1,
-            duration: 0.3,
-            ease: 'easeOut'
-        }}
-    href={href}
-    className='relative overflow-hidden px-2 py-1'
-    >
-        <span className='text-white/90 hover:text-purple-300 transition-colors'>{children}</span>
-    </motion.a>)
-}
 export const Navbar = () => {
-    const [nav, setNav] = useState(false)
-    const toggleNav = () => setNav(!nav);
-    const closeNav = () => setNav(false);
+  const [nav, setNav] = useState(false);
 
-
-    return(
-       <motion.nav 
-       initial={{y:-100}}
-       animate={{y:0}}
-       className='fixed w-full z-50 bg-black/50 text-white backdrop-blur-2xl transition-all duration-300 ease-out'>
-            <div className='max-w-7xl mx-auto px-6 py-3'>
-                <div className='flex items-center justify-between'>
-                    <motion.div 
-                    whileHover={{scale: 1.06}}
-                    className='flex flex-row items-center gap-4 group'>
-                        <div className='relative h-10 w-10 rounded-full overflow-hidden'>
-                            <div className='absolute inset-0 bg-gradient-to-r from-purple-500 to-slate-500 animate-spin [mask-image:linear-gradient(transparent, white)]'>
-                               
-                            </div>
-                            <div className='absolute inset-[2px] bg-[#000] rounded-full flex items-center justify-center'>
-                                    <span className='font-bold bg-gradient-to-r from-purple-500 to-slate-500 bg-clip-text text-transparent'>KK</span>
-                            </div>
-                        </div>
-                        <span className='font-semibold text-white/80 group-hover:text-purple-300 transition-colors'>Krunal . Code . Craft</span>
-                    </motion.div>
-                    <div className='hidden md:flex items-center gap-6'>
-                        <div className='flex items-center gap-6 bg-[#181818] px-4 py-2 rounded-full border border-white/20 shadow-lg shadow-white/10'>
-                            {navLinks.map((items, index)=>(
-                                <MenuItems 
-                                    key={items.title} 
-                                    index={index} 
-                                    href={items.path}
-                                >
-                                   {items.title}
-                                </MenuItems>))}
-                        </div>
-                    </div>
-                    <div className='h-6 w-px bg-white/20 mx-2'></div>
-                    <div className='hidden md:flex flex-row gap-4'>
-                        <a 
-                            href="https://www.linkedin.com/in/krunal-kadu-996a3912b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                            className='p-2 rounded-lg bg-white/20 hover:bg-[#181818] transitions-colors group'>
-                            <FaLinkedinIn className="text-[25px]" style={{ color: "#007ACC"}} />
-                        </a>
-                        <a 
-                        href="https://github.com/Krunalkadu97/"
-                        className='p-2 rounded-lg bg-white/20 hover:bg-[#181818] transitions-colors group'>
-                            <FaGithub className="text-[25px]" style={{ color: "#fff"}} />
-                        </a>
-                        <a 
-                        href="https://medium.com/@krunalkadu97"
-                        className='p-2 rounded-lg bg-white/20 hover:bg-[#181818] transitions-colors group'>
-                            <FaMedium className="text-[25px]" />
-                        </a>
-                    </div>
-                    <div onClick={toggleNav} className='md:hidden border rounded z-50 text-white/70 border-white/70 p-2'>
-                        {nav ? <AiOutlineClose className='h-6 w-6' /> : <AiOutlineMenu className='h-6 w-6'/>}
-                    </div>
-                </div>
-               {nav &&(
-                <motion.div
-                    initial={{opacity: 0, y:-10}}
-                    animate={{opacity: 1, y:0}}
-                    className='md:hidden mt-4 pb-4 space-y-4'
-                >
-                    {navLinks.map((link, index)=>(
-                        <a 
-                            href={link.path} 
-                            key={index} 
-                            onClick={closeNav}
-                            className='block px-4 py-2 text-white/80 hover:text-purple-300 hover:bg-[#18181F] rounded-xl transitions-colors'
-                        >
-                            {link.title}   
-                        </a>
-                    ))}
-                    <div className='pt-4 border-t border-t-white/30 flex gap-4'>
-                        <a 
-                            href="https://www.linkedin.com/in/krunal-kadu-996a3912b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                            className='p-2 rounded-lg bg-white/20 hover:bg-[#181818] transitions-colors group'>
-                            <FaLinkedinIn className="text-[25px]" style={{ color: "#007ACC"}} />
-                        </a>
-                        <a 
-                        href="https://github.com/Krunalkadu97/"
-                        className='p-2 rounded-lg bg-white/20 hover:bg-[#181818] transitions-colors group'>
-                            <FaGithub className="text-[25px]" style={{ color: "#fff"}} />
-                        </a>
-                        <a 
-                        href="https://medium.com/@krunalkadu97"
-                        className='p-2 rounded-lg bg-white/20 hover:bg-[#181818] transitions-colors group'>
-                            <FaMedium className="text-[25px]" />
-                        </a>
-                    </div>
-                </motion.div>
-            )}
+  return (
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-4 left-0 right-0 z-50 px-4"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div
+          className="
+            flex
+            items-center
+            justify-between
+            h-20
+            px-6
+            rounded-[28px]
+            border
+            border-white/10
+            bg-black/40
+            backdrop-blur-2xl
+            shadow-[0_8px_40px_rgba(0,0,0,0.4)]
+          "
+        >
+          {/* LOGO */}
+          <a
+            href="#about"
+            className="flex items-center gap-4"
+          >
+            <div
+              className="
+                w-12
+                h-12
+                rounded-full
+                border
+                border-purple-500/50
+                flex
+                items-center
+                justify-center
+              "
+            >
+              <span className="font-bold text-purple-400">
+                KK
+              </span>
             </div>
-       </motion.nav>
-    )
-}
+
+            <div>
+              <h3 className="text-white font-semibold">
+                Krunal
+              </h3>
+
+              <p className="text-xs text-gray-400">
+                Code • Craft • Create
+              </p>
+            </div>
+          </a>
+
+          {/* DESKTOP NAV */}
+          <div
+            className="
+              hidden
+              md:flex
+              items-center
+              gap-8
+              px-8
+              py-4
+              rounded-full
+              border
+              border-white/10
+              bg-white/[0.03]
+            "
+          >
+            {navLinks.map((item) => (
+              <a
+                key={item.title}
+                href={item.path}
+                className="
+                  text-gray-300
+                  hover:text-purple-400
+                  transition-colors
+                  duration-300
+                  font-medium
+                "
+              >
+                {item.title}
+              </a>
+            ))}
+          </div>
+
+          {/* SOCIALS */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              className="
+                w-12
+                h-12
+                rounded-xl
+                bg-white/5
+                border
+                border-white/10
+                flex
+                items-center
+                justify-center
+                hover:bg-purple-500/10
+                transition-all
+              "
+            >
+              <FaLinkedinIn
+                className="text-xl"
+                color="#0A66C2"
+              />
+            </a>
+
+            <a
+              href="https://github.com/Krunalkadu97"
+              target="_blank"
+              className="
+                w-12
+                h-12
+                rounded-xl
+                bg-white/5
+                border
+                border-white/10
+                flex
+                items-center
+                justify-center
+                hover:bg-purple-500/10
+                transition-all
+              "
+            >
+              <FaGithub
+                className="text-xl text-white"
+              />
+            </a>
+
+            <a
+              href="https://medium.com"
+              target="_blank"
+              className="
+                w-12
+                h-12
+                rounded-xl
+                bg-white/5
+                border
+                border-white/10
+                flex
+                items-center
+                justify-center
+                hover:bg-purple-500/10
+                transition-all
+              "
+            >
+              <FaMedium
+                className="text-xl text-white"
+              />
+            </a>
+          </div>
+
+          {/* MOBILE MENU */}
+          <button
+            onClick={() => setNav(!nav)}
+            className="
+              md:hidden
+              w-12
+              h-12
+              rounded-xl
+              border
+              border-white/10
+              flex
+              items-center
+              justify-center
+              bg-white/5
+            "
+          >
+            {nav ? (
+              <AiOutlineClose className="text-xl" />
+            ) : (
+              <AiOutlineMenu className="text-xl" />
+            )}
+          </button>
+        </div>
+
+        {/* MOBILE NAV */}
+        {nav && (
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="
+              md:hidden
+              mt-4
+              rounded-3xl
+              border
+              border-white/10
+              bg-black/80
+              backdrop-blur-2xl
+              p-6
+            "
+          >
+            <div className="flex flex-col gap-5">
+              {navLinks.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.path}
+                  onClick={() => setNav(false)}
+                  className="
+                    text-gray-300
+                    hover:text-purple-400
+                    transition-colors
+                  "
+                >
+                  {item.title}
+                </a>
+              ))}
+            </div>
+
+            <div className="flex gap-3 mt-6">
+              <FaLinkedinIn className="text-2xl text-[#0A66C2]" />
+              <FaGithub className="text-2xl text-white" />
+              <FaMedium className="text-2xl text-white" />
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </motion.nav>
+  );
+};

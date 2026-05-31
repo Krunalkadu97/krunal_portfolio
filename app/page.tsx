@@ -11,7 +11,15 @@ import { Education } from '@/components/Education';
 import { Footer } from '@/components/Footer';
 export default function Home() {
   return (
-    <>
+      <main
+      className="
+        relative
+        min-h-screen
+        bg-[#050505]
+        text-white
+        overflow-hidden
+      "
+    >
       <Navbar />
       <Hero />
       <About />
@@ -23,6 +31,6 @@ export default function Home() {
       <Services />
       <Contact />
       <Footer />
-    </>
+    </main>
   );
 }

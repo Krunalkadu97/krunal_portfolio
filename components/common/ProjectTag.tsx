@@ -1,19 +1,24 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
+"use client";
 
-type ButtonP = {
-    title: string;
-    isActive: boolean;
-    onClick: (val?: any) => void;
+import React from "react";
+
+type ButtonProps = {
+  title: string;
+  isActive: boolean;
+  onClick: (val: string) => void;
 };
 
-export const ProjectTags = ({title, isActive, onClick}:ButtonP) => {
-    const btnStyle =  isActive ? "text-white border-purple-500":"text-[#ADB7BE] border-slate-600 hover:border-white"
-    return(
+export const ProjectTags = ({ title, isActive, onClick }: ButtonProps) => {
+  return (
     <button
-        className={`${btnStyle} rounded-full border-2 px-8 py-2 text-xl cursor-pointer`}
-        onClick={()=>{onClick(title)}}
+      onClick={() => onClick(title)}
+      className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 outline-none select-none ${
+        isActive
+          ? "bg-purple-500 text-white shadow-lg shadow-purple-500/20 border border-purple-400/20"
+          : "text-slate-400 hover:text-slate-200 border border-transparent"
+      }`}
     >
-        {title}
-    </button>)
-}
+      {title}
+    </button>
+  );
+};

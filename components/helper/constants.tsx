@@ -345,24 +345,30 @@ export const projects = [
   export const metrics = [
     {
         id: 1,
-        value: '4+',
+        value: '5.5+',
         label: 'Years of Experience',
         desc: 'In the field of React Native and React.js.',
     },
-    {
-        id: 2,
-        value: '9+',
-        label: 'Projects Completed',
-        desc: 'For small applications to complex mobile and web platforms.',
-    },
+     {
+    id: 2,
+    value: "1M+",
+    label: "Users Impacted",
+    desc: "Built applications used by thousands of users with a focus on performance and reliability.",
+  },
     {
         id: 3,
-        value: '3+',
-        label: 'Technologies Mastered',
-        desc: 'Proficient in a wide range of programming languages and frameworks.',
+        value: '9+',
+        label: 'Projects Completed',
+        desc: 'Successfully launched products across fintech, e-commerce, and enterprise domains.',
     },
     {
         id: 4,
+        value: '4+',
+        label: 'Developers Mentored',
+        desc: 'Led teams, conducted code reviews, and promoted engineering best practices.',
+    },
+    {
+        id: 5,
         value: '99%',
         label: 'Code Quality',
         desc: 'Commited to write clean, efficient and maintainable code.',
@@ -390,10 +396,10 @@ export const stcakItems = [
     {id: 3, name: 'Redux', icon: SiRedux, color: '#764ABC'},
     {id: 6, name: 'Typescript', icon: SiTypescript, color: '#007ACC'},
     {id: 7, name: 'Tailwind', icon: RiTailwindCssFill, color: '#38B2AC'},
-    {id: 10, name: 'Next.js', icon: TbBrandNextjs, color: '#000'}
+    {id: 10, name: 'Next.js', icon: TbBrandNextjs, color: '#fff'}
 ];
 export const toolsItem = [
-    {id: 5, name: 'Github', icon: FaGithub, color: '#000'},
+    {id: 5, name: 'Github', icon: FaGithub, color: '#fff'},
     {id: 8, name: 'Xcode', icon: SiXcode, color: '#147EFB'},
     {id: 9, name: 'Android Studio', icon: SiAndroidstudio, color: '#3DDC84'},
     {id: 10, name: 'Postman', icon: SiPostman, color: '#FF6C37'},
